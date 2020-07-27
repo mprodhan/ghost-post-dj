@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1>Boast</h1>
+
+    {% for boast in boasts %}
+        <ul>
+            <h1>Anonymous {{boast.id}}</h1>
+            {% if boast.is_boast == True %}
+                <li><a href="/boasts/{{boasts.id}}"></a>Boast</li>
+            {% endif %}
+                <li>{{boast.post}}</li>
+                <li>{{boast.up_votes}}</li>
+                <li>{{boast.down_votes}}</li>
+                <li>{{boast.submission}}</li>
+        </ul>
+    {% endfor %}
+
+{% endblock %}

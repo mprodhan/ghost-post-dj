@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    {% for d in data %}
+        <!-- <ul> -->
+        <div class="row row-cols-3 row-cols-md-3">
+            <div class="card">
+                <div class="card h-100"> 
+                    <div class="card-body">
+                        <h1 class="card-title"><span class="badge badge-primary">Anonymous {{d.id}}</span></h1>
+                        {% if d.is_boast == True %}
+                            <h3><span class="badge badge-primary">Boast</span></h3>
+                        {% else %}
+                            <h3><span class="badge badge-primary">ROAST!!!</span></h3>
+                        {% endif %}
+                            <h3 class="card-text"><span class="badge badge-primary">{{d.post}}</span></h3>
+                        <h3><a href="/upvote/{{d.id}}/">
+                            <span class="badge badge-primary">
+                            Yay: <span class="badge badge-light">{{d.up_votes}}</span>
+                        </span></a></h3>
+                        <h3><a href="/downvote/{{d.id}}/">
+                            <span class="badge badge-primary">
+                            Boo: <span class="badge badge-light">{{d.down_votes}}</span>
+                        </span></a></h3>
+                        <h3><span class="badge badge-primary">
+                            Total Votes: <span class="badge badge-light">{{d.total_votes}}</span>
+                        </span></h3>
+                        <h3><span class="badge badge-primary">{{d.submission}}</span></h3>
+                        <a href="/boast/">Check out the boast page</a> or <a href="/roast/">the roast page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </ul> -->
+    {% endfor %}
+
+{% endblock %}
+
+

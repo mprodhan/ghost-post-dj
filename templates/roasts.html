@@ -1,0 +1,19 @@
+{% extends "base.html %}
+
+{% block heading %}ROAST!!!{% endblock %}
+
+{% block body %}
+
+    {% for roast in roasts %}
+        <ul>
+        {% if roast.is_boast == False %}
+            <li><a href="/roasts/{{roasts.id}}"></a>ROAST!!!</li>
+        {% endif %}
+            <li>{{roast.post}}</li>
+            <li>{{roast.up_votes}}</li>
+            <li>{{roast.down_votes}}</li>
+            <li>{{roast.submission}}</li>
+        </ul>
+    {% endfor %}
+
+{% endblock %}
